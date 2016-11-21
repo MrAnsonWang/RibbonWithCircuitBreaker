@@ -1,0 +1,25 @@
+server:
+  port: 5555
+  
+spring:
+  application:
+    name: Ribbon-Consumer-With-CircuitBreaker
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+    metadata-map:
+      cluster: default
+  client:
+    initial-instance-info-replication-interval-seconds: 0
+    instance-info-replication-interval-seconds: 1
+    registry-fetch-interval-seconds: 1
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+
+Compute-Service: 
+  ribbon: 
+    ServerListRefreshInterval: 1000
